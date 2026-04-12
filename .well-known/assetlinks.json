@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.knisium.classhub",
+      "sha256_cert_fingerprints": [
+        "FB:AE:36:30:63:6C:FC:1F:20:2A:68:AC:38:60:6A:9C:B4:0E:2B:19:A8:D1:0A:01:5F:C7:BF:A1:B2:48:AD:2A",
+        "A8:45:F1:14:EE:81:4A:BB:BA:34:AD:3E:43:1B:AF:2C:12:33:88:E8:93:EE:D2:21:E0:37:49:A4:73:2C:86:D0"
+      ]
+    }
+  }
+]
