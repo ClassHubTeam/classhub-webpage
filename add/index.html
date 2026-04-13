@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classhub — Open Sources</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <nav>
+      <a class="logo" href="https://classhub.knisium.com">Classhub</a>
+      <span class="badge">Beta</span>
+    </nav>
+
+    <main class="add-main">
+      <p class="eyebrow">Incoming sources</p>
+      <h1 class="page-heading" id="heading"></h1>
+      <p class="subtitle" id="subtitle"></p>
+
+      <p class="sources-label" id="sources-label"></p>
+      <div class="sources" id="source-list"></div>
+
+      <a class="btn btn-primary" id="open-btn" href="#">Open in Classhub</a>
+      <a class="btn btn-secondary" href="https://classhub.knisium.com"
+        >Download the app</a
+      >
+      <p class="hint">
+        If the app didn't open automatically, tap the button above.<br />
+        Don't have it yet? Download it first, then come back to this link.
+      </p>
+    </main>
+
+    <footer>© 2026 Classhub · Built with Flutter</footer>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const urls = params.getAll("url");
+      const count = urls.length;
+
+      const heading = document.getElementById("heading");
+      const subtitle = document.getElementById("subtitle");
+      const sourcesLabel = document.getElementById("sources-label");
+      const sourceList = document.getElementById("source-list");
+      const openBtn = document.getElementById("open-btn");
+
+      if (count > 0) {
+        heading.textContent =
+          count === 1
+            ? "Someone shared a source with you."
+            : `Someone shared ${count} sources with you.`;
+
+        subtitle.textContent =
+          count === 1
+            ? "Open Classhub to add this resource to your library."
+            : "Open Classhub to add these resources to your library.";
+
+        sourcesLabel.textContent =
+          count === 1 ? "1 source" : `${count} sources`;
+
+        urls.forEach((url, i) => {
+          sourceList.innerHTML += `
+          <div class="source-item">
+            <span class="source-num">${i + 1}</span>
+            <span>${url}</span>
+          </div>`;
+        });
+
+        const deepLink =
+          "classhub://add?" +
+          urls.map((u) => "url=" + encodeURIComponent(u)).join("&");
+        openBtn.href = deepLink;
+      } else {
+        heading.textContent = "Nothing to add.";
+        subtitle.textContent =
+          "This link doesn't contain any sources. It may be incomplete or incorrectly formed.";
+        sourcesLabel.style.display = "none";
+        sourceList.style.display = "none";
+        openBtn.style.display = "none";
+      }
+    </script>
+  </body>
+</html>

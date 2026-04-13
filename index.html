@@ -4,203 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Classhub</title>
-    <style>
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      :root {
-        --bg: #f7f5f0;
-        --ink: #1a1814;
-        --muted: #6b6760;
-        --border: #dedad3;
-        --accent: #2d5be3;
-      }
-
-      body {
-        background: var(--bg);
-        color: var(--ink);
-        font-family: "Georgia", serif;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-      }
-
-      nav {
-        padding: 1.4rem 2.5rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .logo {
-        font-size: 1.2rem;
-        letter-spacing: -0.01em;
-      }
-
-      .badge {
-        font-family: system-ui, sans-serif;
-        font-size: 0.68rem;
-        font-weight: 600;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--muted);
-        border: 1px solid var(--border);
-        padding: 0.25rem 0.65rem;
-        border-radius: 2rem;
-      }
-
-      main {
-        flex: 1;
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 5rem;
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 5rem 2.5rem;
-        width: 100%;
-        align-items: start;
-      }
-
-      .eyebrow {
-        font-family: system-ui, sans-serif;
-        font-size: 0.7rem;
-        font-weight: 600;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: var(--accent);
-        margin-bottom: 1rem;
-      }
-
-      h1 {
-        font-size: clamp(2.4rem, 5vw, 3.4rem);
-        line-height: 1.1;
-        letter-spacing: -0.02em;
-        margin-bottom: 1.2rem;
-      }
-
-      h1 em {
-        font-style: italic;
-        color: var(--muted);
-      }
-
-      .tagline {
-        font-family: system-ui, sans-serif;
-        font-size: 1rem;
-        color: var(--muted);
-        line-height: 1.7;
-        margin-bottom: 2.2rem;
-        max-width: 40ch;
-      }
-
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: var(--ink);
-        color: #fff;
-        text-decoration: none;
-        padding: 0.8rem 1.4rem;
-        border-radius: 0.35rem;
-        font-family: system-ui, sans-serif;
-        font-size: 0.88rem;
-        font-weight: 600;
-      }
-
-      .sub {
-        font-family: system-ui, sans-serif;
-        font-size: 0.75rem;
-        color: var(--muted);
-        margin-top: 0.7rem;
-      }
-
-      .features {
-        margin-top: 3rem;
-        padding-top: 2rem;
-        border-top: 1px solid var(--border);
-        display: flex;
-        flex-direction: column;
-        gap: 1.4rem;
-      }
-
-      .feature {
-        display: flex;
-        gap: 1rem;
-        font-family: system-ui, sans-serif;
-      }
-
-      .feature-icon {
-        font-size: 1rem;
-        margin-top: 0.1rem;
-        flex-shrink: 0;
-      }
-
-      .feature strong {
-        display: block;
-        font-size: 0.88rem;
-        font-weight: 600;
-        margin-bottom: 0.2rem;
-      }
-
-      .feature span {
-        font-size: 0.82rem;
-        color: var(--muted);
-        line-height: 1.55;
-      }
-
-      /* QR */
-      .qr-block {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.8rem;
-        padding-top: 0.5rem;
-      }
-
-      .qr-block img {
-        display: block;
-        border: 1px solid var(--border);
-        border-radius: 0.5rem;
-        background: #fff;
-        padding: 0.6rem;
-      }
-
-      .qr-label {
-        font-family: system-ui, sans-serif;
-        font-size: 0.72rem;
-        color: var(--muted);
-        letter-spacing: 0.06em;
-        text-align: center;
-      }
-
-      footer {
-        border-top: 1px solid var(--border);
-        padding: 1.2rem 2.5rem;
-        text-align: center;
-        font-family: system-ui, sans-serif;
-        font-size: 0.73rem;
-        color: var(--muted);
-      }
-
-      @media (max-width: 640px) {
-        main {
-          grid-template-columns: 1fr;
-          gap: 3rem;
-          padding: 3rem 1.5rem;
-        }
-        nav {
-          padding: 1.2rem 1.5rem;
-        }
-        .qr-block {
-          align-items: flex-start;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
     <nav>
@@ -208,7 +12,7 @@
       <span class="badge">Beta</span>
     </nav>
 
-    <main>
+    <main class="home-main">
       <div>
         <p class="eyebrow">For Students</p>
         <h1>All your <em>class resources,</em> one place.</h1>
@@ -217,10 +21,9 @@
           subject, with your team.
         </p>
 
-        <!-- <a href="classhub.apk" class="btn"> ↓ &nbsp;Download APK </a> -->
         <a
           href="https://github.com/titanknis/classhub-releases/releases/latest/download/app-debug.apk"
-          class="btn"
+          class="btn-download"
         >
           ↓ &nbsp;Download APK
         </a>
