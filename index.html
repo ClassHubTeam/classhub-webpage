@@ -3,23 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Download, organize, and manage your class files — right on your device."
+    />
+    <meta property="og:title" content="Classhub" />
+    <meta
+      property="og:description"
+      content="Your class files, on your device. Simple, offline, and free."
+    />
+    <meta property="og:url" content="https://classhub.knisium.com" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/favicon.png" type="image/png" />
     <title>Classhub</title>
     <link rel="stylesheet" href="/style.css" />
+    <script>
+      (function () {
+        const t = localStorage.getItem("theme") || "system";
+        const theme =
+          t === "system"
+            ? matchMedia("(prefers-color-scheme: light)").matches
+              ? "light"
+              : "dark"
+            : t;
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
   </head>
   <body>
     <nav>
       <span class="logo">Classhub</span>
-      <span class="badge">Beta</span>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        ◐
+      </button>
     </nav>
 
     <main class="home-main">
       <div>
         <p class="eyebrow">For Students</p>
         <h1>All your <em>class resources,</em> one place.</h1>
-        <p class="tagline">
-          Organize, share, and access your course materials — across every
-          subject, with your team.
-        </p>
+        <p class="tagline">Organize, share, focus</p>
 
         <a
           href="https://github.com/titanknis/classhub/releases/latest/download/classhub.apk"
@@ -31,32 +54,20 @@
 
         <div class="features">
           <div class="feature">
-            <span class="feature-icon">📁</span>
-            <div>
-              <strong>File Explorer</strong>
-              <span
-                >Browse and manage course files from your device storage.</span
-              >
-            </div>
+            <strong>Simple by Design</strong>
+            <span>Minimal and intuitive interface.</span>
           </div>
           <div class="feature">
-            <span class="feature-icon">🔗</span>
-            <div>
-              <strong>Share Sources</strong>
-              <span
-                >Send multiple resource links in one tap — opens directly in the
-                app.</span
-              >
-            </div>
+            <strong>Offline First</strong>
+            <span>Works entirely on your device.</span>
           </div>
           <div class="feature">
-            <span class="feature-icon">🎨</span>
-            <div>
-              <strong>Material You</strong>
-              <span
-                >Adapts to your system theme with dynamic color support.</span
-              >
-            </div>
+            <strong>Privacy Guaranteed</strong>
+            <span>Your data stays where it belongs.</span>
+          </div>
+          <div class="feature">
+            <strong>Open Source</strong>
+            <span>Free and open source software.</span>
           </div>
         </div>
       </div>
@@ -73,6 +84,8 @@
       </div>
     </main>
 
-    <footer>© 2026 Classhub · Built with Flutter</footer>
+    <footer>© 2026 Classhub</footer>
+
+    <script src="/theme.js"></script>
   </body>
 </html>

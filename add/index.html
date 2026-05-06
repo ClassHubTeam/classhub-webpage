@@ -3,13 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Open shared class files in Classhub." />
+    <link rel="icon" href="/favicon.png" type="image/png" />
     <title>Classhub — Open Sources</title>
     <link rel="stylesheet" href="/style.css" />
+    <script>
+      (function () {
+        const t = localStorage.getItem("theme") || "system";
+        const theme =
+          t === "system"
+            ? matchMedia("(prefers-color-scheme: light)").matches
+              ? "light"
+              : "dark"
+            : t;
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
   </head>
   <body>
     <nav>
       <a class="logo" href="https://classhub.knisium.com">Classhub</a>
-      <span class="badge">Beta</span>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        ◐
+      </button>
     </nav>
 
     <main class="add-main">
@@ -26,12 +42,13 @@
       >
       <p class="hint">
         If the app didn't open automatically, tap the button above.<br />
-        Don't have it yet? Download it first, then come back to this link.
+        Don't have the app yet? Download it first, then come back to this link.
       </p>
     </main>
 
-    <footer>© 2026 Classhub · Built with Flutter</footer>
+    <footer>© 2026 Classhub</footer>
 
+    <script src="/theme.js"></script>
     <script>
       const params = new URLSearchParams(window.location.search);
       const urls = params.getAll("url");
@@ -51,8 +68,8 @@
 
         subtitle.textContent =
           count === 1
-            ? "Open Classhub to add this resource to your library."
-            : "Open Classhub to add these resources to your library.";
+            ? "Open Classhub to add this resource."
+            : "Open Classhub to add these resources.";
 
         sourcesLabel.textContent =
           count === 1 ? "1 source" : `${count} sources`;
